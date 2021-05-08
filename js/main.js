@@ -6,16 +6,22 @@ var MarketGoods = (function () {
 window.onload = function () {
     var addBtn = document.getElementById("submitBtn");
     addBtn.onclick = addProduct;
+    var clearThis = document.getElementById("clearBtn");
+    clearThis.onclick = clearBtn;
 };
 function addProduct() {
+    cSpan();
     if (isValid()) {
-        alert("You submitted this");
         var addThis = getMarketGoods();
         showGoods(addThis);
     }
     else {
         clearSubmition();
     }
+}
+function clearBtn() {
+    cSpan();
+    formReset();
 }
 function getMarketGoods() {
     var data = new MarketGoods();
@@ -43,6 +49,20 @@ function showGoods(showMe) {
 function clearSubmition() {
     var formOutput = getInputById("formOutput");
     formOutput.innerText = "";
+}
+function formReset() {
+    var resetForm = document.getElementById("formID");
+    resetForm.reset();
+}
+function cSpan() {
+    var errorName = getInputById("nameSpan");
+    errorName.innerText = '*';
+    var errorPrice = getInputById("priceSpan");
+    errorPrice.innerText = '*';
+    var errorDescription = getInputById("descriptionSpan");
+    errorDescription.innerText = '*';
+    var errorDate = getInputById("expDateSpan");
+    errorDate.innerText = '*';
 }
 var getInputById = function (id) {
     return document.getElementById(id);

@@ -9,24 +9,32 @@ window.onload = function()
 {
     let addBtn = <HTMLElement>document.getElementById("submitBtn");
     addBtn.onclick = addProduct;
+    let clearThis = <HTMLElement>document.getElementById("clearBtn");
+    clearThis.onclick = clearBtn;
+
 }
 
 function addProduct()//what does this do?
 {
+    cSpan();
+
     if (isValid())
     {
-        alert("You submitted this");
+        //alert("You submitted this");
         let addThis:MarketGoods = getMarketGoods();
-        showGoods(addThis);  
+        showGoods(addThis);
     }
 
     else
     {
         clearSubmition();
     }
-    
+}
 
-    
+function clearBtn()
+{
+    cSpan();
+    formReset();
 }
 
 function getMarketGoods():MarketGoods //this gets all the data submitted by user
@@ -66,6 +74,24 @@ function clearSubmition()
     formOutput.innerText = "";
 }
 
+function formReset()
+{
+    let resetForm = <HTMLFormElement>document.getElementById("formID");
+    resetForm.reset();
+}
+
+function cSpan()
+{
+    let errorName = getInputById("nameSpan");
+    errorName.innerText = '*';
+    let errorPrice = getInputById("priceSpan");
+    errorPrice.innerText = '*';
+    let errorDescription = getInputById("descriptionSpan");
+    errorDescription.innerText = '*';
+    let errorDate = getInputById("expDateSpan");
+    errorDate.innerText = '*';
+    
+}
 var getInputById = function(id:string)
 {
     return (<HTMLInputElement>document.getElementById(id));
