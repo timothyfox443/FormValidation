@@ -8,9 +8,14 @@ window.onload = function () {
     addBtn.onclick = addProduct;
 };
 function addProduct() {
-    alert("You submitted this");
-    var addThis = getMarketGoods();
-    showGoods(addThis);
+    if (isValid()) {
+        alert("You submitted this");
+        var addThis = getMarketGoods();
+        showGoods(addThis);
+    }
+    else {
+        clearSubmition();
+    }
 }
 function getMarketGoods() {
     var data = new MarketGoods();
@@ -35,6 +40,38 @@ function showGoods(showMe) {
     formOutput.appendChild(productDescription);
     formOutput.appendChild(productExpDate);
 }
+function clearSubmition() {
+    var formOutput = getInputById("formOutput");
+    formOutput.innerText = "";
+}
 var getInputById = function (id) {
     return document.getElementById(id);
 };
+function isValid() {
+    var valid = true;
+    var name = getInputById("name").value;
+    if (name == "" || name == null) {
+        valid = false;
+        var errorReport = getInputById("nameSpan");
+        errorReport.innerText = 'This is not a name';
+    }
+    var price = parseFloat(getInputById("price").value);
+    if (price == null || isNaN(price)) {
+        valid = false;
+        var errorReport = getInputById("priceSpan");
+        errorReport.innerText = 'This is not a valid price';
+    }
+    var description = getInputById("description").value;
+    if (description == "" || description == null) {
+        valid = false;
+        var errorReport = getInputById("descriptionSpan");
+        errorReport.innerText = 'This is not a description';
+    }
+    var expDate = getInputById("expDate").value;
+    if (expDate == "" || expDate == null) {
+        valid = false;
+        var errorReport = getInputById("expDateSpan");
+        errorReport.innerText = 'This is not a date';
+    }
+    return valid;
+}
