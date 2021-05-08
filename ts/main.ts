@@ -14,7 +14,7 @@ window.onload = function()
 
 }
 
-function addProduct()//what does this do?
+function addProduct()//this is something that happens when the submit button is pushed
 {
     cSpan();
 
@@ -68,7 +68,7 @@ function showGoods(showMe:MarketGoods):void//show me the money
     formOutput.appendChild(productExpDate);
 }
 
-function clearSubmition()
+function clearSubmition()//this clears the form cache so your boss doesn't see what your doing
 {
     let formOutput = getInputById("formOutput");
     formOutput.innerText = "";
@@ -80,7 +80,7 @@ function formReset()
     resetForm.reset();
 }
 
-function cSpan()
+function cSpan()//this is how you know what your tax dollars are doing
 {
     let errorName = getInputById("nameSpan");
     errorName.innerText = '*';
@@ -97,7 +97,7 @@ var getInputById = function(id:string)
     return (<HTMLInputElement>document.getElementById(id));
 }
 
-function isValid():boolean
+function isValid():boolean//this checks to see if you're lying
 {
     let valid = true;
 
