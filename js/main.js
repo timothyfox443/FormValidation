@@ -1,7 +1,4 @@
 window.onload = function () {
-    var formBtn = document.querySelector("form > button");
-    formBtn.onclick = main;
+    var addBtn = document.querySelector("input[type=button]");
+    addBtn.onclick = addVideoGame;
 };
-function main() {
-    alert("Reg button was clicked");
-}

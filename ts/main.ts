@@ -1,10 +1,11 @@
 window.onload = function()
 {
-    let formBtn = <HTMLElement>document.querySelector("form > button");
-    formBtn.onclick = main;
+    let addBtn = <HTMLElement>document.querySelector("input[type=button]");
+    addBtn.onclick = addVideoGame;
 }
 
-function main():void
+function addVideoGame():
 {
     alert("Reg button was clicked");
+    
 }
