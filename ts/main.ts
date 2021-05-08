@@ -31,7 +31,7 @@ function addProduct()//this is something that happens when the submit button is 
     }
 }
 
-function clearBtn()
+function clearBtn()//no no, this one clears your "other" cache
 {
     cSpan();
     formReset();
