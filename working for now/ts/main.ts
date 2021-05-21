@@ -21,4 +21,14 @@ function btnAddTask()
     let taskList = document.getElementById("showtasks");
     taskList.appendChild(doneCheckBox);
     taskList.appendChild(taskDisplay);
+
+    clearTextBox();
+
+    //clear text box
+    function clearTextBox()
+    {
+        (<HTMLInputElement>document.getElementById("inputs")).focus();
+        (<HTMLInputElement>document.getElementById("inputs")).value = "";
+
+    }
 }
