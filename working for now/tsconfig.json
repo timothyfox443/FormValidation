@@ -1,0 +1,9 @@
+{
+    "compilerOptions": 
+    {
+        "removeComments": true,
+        "outDir": "js",
+        "target": "ES3",
+        "watch": true
+    }
+}
